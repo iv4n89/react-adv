@@ -1,8 +1,10 @@
 import { BrowserRouter as Router} from 'react-router-dom';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
-import logo from '../logo.svg';
+import { LazyPage1 } from '../01-lazyload/pages/LazyPage1';
+import { LazyPage2 } from '../01-lazyload/pages/LazyPage2';
 
-import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
+import logo from '../logo.svg';
+import { LazyPage3 } from '../01-lazyload/pages/LazyPage13';
 
 export const Navigation = () => {
   return (
