@@ -1,6 +1,6 @@
 import styles from '../styles/styles.module.css'
 import { useProduct } from '../hooks/useProduct'
-import { createContext, useContext } from 'react'
+import { createContext } from 'react'
 import { ProductContextProps, Props } from '../interfaces/product.interfaces'
 
 export const ProductContext = createContext({} as ProductContextProps)
