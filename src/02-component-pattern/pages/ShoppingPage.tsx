@@ -1,51 +1,12 @@
-import { useState } from 'react'
 import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components/index'
-import { Product } from '../interfaces/product.interfaces'
+import { products } from '../data/products'
+import { useShoppingCart } from '../hooks/useShoppingCart'
 import '../styles/custom-styles.css'
-
-const product = {
-    id: '1',
-    title: 'Coffee Mug - Card',
-    img: './coffee-mug.png'
-}
-
-const product2 = {
-    id: '2',
-    title: 'Coffee Mug - Meme',
-    img: './coffee-mug2.png'
-}
-
-const products: Product[] = [product, product2]
-
-interface ProductInCart extends Product {
-    count: number,
-}
-
 
 
 export const ShoppingPage = () => {
 
-    const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({})
-
-    const onProductCartChange = ({ count, product }: { count: number, product: Product }) => {
-        console.log('carrito', count, product);
-
-        setShoppingCart(prev => {
-
-            if (count === 0) {
-
-                const { [product.id]: toDelete, ...rest } = prev
-
-                return { ...rest }
-
-            }
-
-            return {
-                ...prev,
-                [product.id]: { ...product, count }
-            }
-        })
-    }
+    const { shoppingCart, onChange } = useShoppingCart()
 
     return (
         <div>
@@ -59,12 +20,13 @@ export const ShoppingPage = () => {
             }}>
 
                 {
-                    products.map(product => (
+                    products.map((product) => (
                         <ProductCard
                             product={product}
                             className="bg-dark text-white"
                             key={product.id}
-                            onChange={onProductCartChange}
+                            onChange={onChange}
+                            value={ shoppingCart[product.id]?.count || 0 }
                         >
                             <ProductImage className="custom-image" />
                             <ProductTitle className='text-bold' />
@@ -80,9 +42,10 @@ export const ShoppingPage = () => {
                         <ProductCard
                             product={shoppingCart[product]}
                             className="bg-dark text-white"
-                            style={{
-                                width: "100px"
-                            }}
+                            style={{ width: "100px" }}
+                            onChange={ onChange }
+                            value={ shoppingCart[product].count }
+                            key={shoppingCart[product].id}
                         >
                             <ProductImage className="custom-image" />
                             <ProductButtons
