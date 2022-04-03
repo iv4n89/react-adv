@@ -1,0 +1,84 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeHolder": "Currupipi",
+        "label": "First Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Este campo es requerido"
+            },
+            {
+                "type": "minLength",
+                "message": "El nombre debe contener al menos 5 letras",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeHolder": "Abierto",
+        "label": "Last Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Este campo es requerido"
+            },
+            {
+                "type": "minLength",
+                "message": "El apellido debe contener al menos 5 letras",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeHolder": "email@mail.com",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Este campo es requerido"
+            },
+            {
+                "type": "email",
+                "message": "El email tiene un formato no válido"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Favorite Game",
+        "value": "",
+        "options": [
+            {
+                "id": 1,
+                "label": "Super smash",
+                "value": "Super smash"
+            },
+            {
+                "id": 2,
+                "label": "Final fantasy 7",
+                "value": "Final fantasy 7"
+            },
+            {
+                "id": 3,
+                "label": "Pepa pig online",
+                "value": "Pepa pig online"
+            }
+        ],
+        "validations": [
+            {
+                "type": "required",
+                "message":"Este campo es requerido"
+            }
+        ]
+    }
+]
